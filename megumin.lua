@@ -13,8 +13,14 @@ client:on('ready', function()
 end)
 
 client:on('messageCreate', function(message)
-	if message.content == '@sonic' then
+	if message.content == '=sonic' then
 		message.channel:send('<:sonic:412304114270208011>')
+	end
+end)
+
+client:on('messageCreate', function(message)
+if message.content == 'prefix' then
+		message.channel:send('the prefix for me is =')
 	end
 end)
 
