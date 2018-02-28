@@ -13,7 +13,7 @@ local json = require("./json")
 
 local stuff = require("./modules/stuff")
 
-local a = "Prefix is %s"
+local a = "Prefix is '%s' || https://discord.gg/jrrYB4F"
 
 function string.starts(String, Start)
 	return string.sub(String, 1, string.len(Start)) == Start
