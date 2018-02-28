@@ -1,5 +1,4 @@
 {
     "token" : "token",
     "prefix": "=",
-    "welcome_mess": "welcome to the server, %s"
 }
