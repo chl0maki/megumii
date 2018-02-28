@@ -1,11 +1,5 @@
 {
     "token" : "token",
-<<<<<<< HEAD
     "prefix": "=",
     "welcome_mess": "welcome to the server, %s"
 }
-=======
-    "prefix": "="
-    "welcome_mess": "Welcome to the server, %s!"
-}
->>>>>>> 4d7eb6deae4fee68500064c0494edf1f081c5fdc
