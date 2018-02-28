@@ -1,7 +1,12 @@
--- kms
--- also, if you came here for a token, move away because there aint any tokens.
+--[[
+	kms
+	also, if you came here for a token, move away because there aint any tokens.
 
--- functions
+	special thanks to geni#0020 or https://github.com/geniiii
+]]
+
+
+--functions--
 
 local discordia = require("discordia")
 local json = require("./json")
@@ -20,11 +25,20 @@ local content = file:read("*all")
 local config = json.decode(content)
 file:close()
 
+--commands--
+
 client:on(
 	"ready",
 	function()
 		logger:log(3, "bitch you logged in as %s", client.user.username)
 	end
+)
+
+client:on(
+    "memberJoin",
+    function(member)
+        member:sendMessage(json_file["welcome_mess"]:format(member))
+    end
 )
 
 client:on(
