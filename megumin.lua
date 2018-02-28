@@ -28,10 +28,11 @@ file:close()
 --commands--
 
 client:on(
-	"ready",
-	function()
-		logger:log(3, "bitch you logged in as %s", client.user.username)
-	end
+    "ready",
+    function()
+        client:setGame("Prefix is %s":format(config["prefix"]))
+        logger:log(3, "bitch you logged in as %s", client.user.username)
+    end
 )
 
 client:on(
