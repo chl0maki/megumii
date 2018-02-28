@@ -13,7 +13,7 @@ function string.starts(String, Start)
 end
 
 local client = discordia.Client()
-local logger = discordia.Logger(3, '%F %T')
+local logger = discordia.Logger(3, "%F %T")
 
 local file = io.open("./config.json", r)
 local content = file:read("*all")
@@ -43,6 +43,13 @@ client:on(
 		if stuff[cmds] then
 			stuff[cmds](arg, message)
 		end
+	end
+)
+
+client:on(
+	"memberJoin",
+	function(member)
+		member:sendMessage(json_file["welcome_mess"]:format(member))
 	end
 )
 
