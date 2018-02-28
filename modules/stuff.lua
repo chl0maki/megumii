@@ -19,12 +19,12 @@ end
 cmds["hentai"] = function(arg, message)
     if message.channel.nsfw then
         local get, body = http.request("GET", "https://nekos.life/api/v2/img/lewd")
-message.channel:send {
-  embed = {
-    title = "hentai",
-    image = { url = json.decode(body)["url"] }
-  }
-}
+        message.channel:send {
+            embed = {
+            title = "hentai",
+            image = { url = json.decode(body)["url"] }
+            }
+      }
     end
 end
 
