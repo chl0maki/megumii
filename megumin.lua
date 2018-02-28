@@ -13,6 +13,8 @@ local json = require("./json")
 
 local stuff = require("./modules/stuff")
 
+local a = "Prefix is %s"
+
 function string.starts(String, Start)
 	return string.sub(String, 1, string.len(Start)) == Start
 end
@@ -30,7 +32,7 @@ file:close()
 client:on(
     "ready",
     function()
-        client:setGame("Prefix is %s":format(config["prefix"]))
+        client:setGame(a:format(config["prefix"]))
         logger:log(3, "bitch you logged in as %s", client.user.username)
     end
 )
