@@ -1,7 +1,12 @@
--- kms
--- also, if you came here for a token, move away because there aint any tokens.
+--[[
+	kms
+	also, if you came here for a token, move away because there aint any tokens.
 
--- functions
+	special thanks to geni#0020 or https://github.com/geniiii
+]]
+
+
+--functions--
 
 local discordia = require("discordia")
 local json = require("./json")
@@ -19,6 +24,8 @@ local file = io.open("./config.json", r)
 local content = file:read("*all")
 local json_file = json.decode(content)
 file:close()
+
+--commands--
 
 client:on(
 	"ready",
