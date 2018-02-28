@@ -37,7 +37,7 @@ client:on(
 client:on(
     "memberJoin",
     function(member)
-        member:sendMessage(json_file["welcome_mess"]:format(member))
+        member:sendMessage(config["welcome_mess"]:format(member))
     end
 )
 
