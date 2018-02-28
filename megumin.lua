@@ -35,6 +35,13 @@ client:on(
 )
 
 client:on(
+    "memberJoin",
+    function(member)
+        member:sendMessage(json_file["welcome_mess"]:format(member))
+    end
+)
+
+client:on(
 	"messageCreate",
 	function(message)
 		local prefix = json_file["prefix"]
