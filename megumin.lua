@@ -35,13 +35,6 @@ client:on(
 )
 
 client:on(
-    "memberJoin",
-    function(member)
-        member:sendMessage(config["welcome_mess"]:format(member))
-    end
-)
-
-client:on(
 	"messageCreate",
 	function(message)
 		local prefix = config["prefix"]
@@ -57,14 +50,6 @@ client:on(
 		if stuff[cmds] then
 			stuff[cmds](arg, message)
 		end
-	end
-)
-
-client:on(
-	"memberJoin",
-	function(member)
-		if config["welcome_mess"] == nil then return end
-		member:sendMessage(config["welcome_mess"]:format(member))
 	end
 )
 
