@@ -17,8 +17,15 @@ cmds["cat"] = function(arg, message)
 end
 
 cmds["hentai"] = function(arg, message)
-	local get, body = http.request("GET", "https://nekos.life/api/v2/img/lewd")
-	message.channel:send(json.decode(body)["url"])
+    if message.channel.nsfw then
+        local get, body = http.request("GET", "https://nekos.life/api/v2/img/lewd")
+message.channel:send {
+  embed = {
+    title = "hentai",
+    image = { url = json.decode(body)["url"] }
+  }
+}
+    end
 end
 
 cmds["coinflip"] = function(arg, message)
@@ -27,7 +34,7 @@ cmds["coinflip"] = function(arg, message)
 end
 
 cmds["cmds"] = function(arg, message)
-	message.channel:send("current commands are: =sonic (must require sonic emoji), prefix and =cmds.")
+	message.channel:send("current commands are: =sonic, =cat, =dog, =hentai (nsfw channel), =coinflip and =cmds.")
 end
 
 cmds["sonic"] = function(arg, message)
