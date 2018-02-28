@@ -17,7 +17,7 @@ local logger = discordia.Logger(3, "%F %T")
 
 local file = io.open("./config.json", r)
 local content = file:read("*all")
-local json_file = json.decode(content)
+local config = json.decode(content)
 file:close()
 
 client:on(
@@ -30,7 +30,7 @@ client:on(
 client:on(
 	"messageCreate",
 	function(message)
-		local prefix = json_file["prefix"]
+		local prefix = config["prefix"]
 
 		if not string.starts(message.content, prefix) then
 			return
@@ -49,8 +49,9 @@ client:on(
 client:on(
 	"memberJoin",
 	function(member)
-		member:sendMessage(json_file["welcome_mess"]:format(member))
+		if config["welcome_mess"] == nil then return end
+		member:sendMessage(config["welcome_mess"]:format(member))
 	end
 )
 
-client:run("Bot " .. json_file["token"])
+client:run("Bot " .. config["token"])
