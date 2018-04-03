@@ -12,7 +12,7 @@ cmds["dog"] = function(arg, message)
 end
 
 cmds["cat"] = function(arg, message)
-	local get, body = http.request("GET", "http://random.cat/meow")
+	local get, body = http.request("GET", "http://aws.random.cat/meow")
 	message.channel:send(json.decode(body)["file"])
 end
 
