@@ -8,23 +8,23 @@ local cmds = {}
 
 cmds["dog"] = function(arg, message)
 local get, body = http.request("GET", "https://random.dog/woof.json")
-        message.channel:send {
-            embed = {
-                title = "dog",
-                image = { url = json.decode(body)["url"] }
-            }
+    message.channel:send {
+        embed = {
+        title = "dog",
+        image = { url = json.decode(body)["url"] }
         }
-    end
+    }
+end
 
 cmds["cat"] = function(arg, message)
 local get, body = http.request("GET", "https://aws.random.cat/meow")
-        message.channel:send {
-            embed = {
-                title = "cat",
-                image = { url = json.decode(body)["url"] }
-            }
+    message.channel:send {
+        embed = {
+        title = "cat",
+        image = { url = json.decode(body)["url"] }
         }
-    end
+    }
+end
 
 cmds["hentai"] = function(arg, message)
     if message.channel.nsfw or message.channel.nsfw-chat or message.channel.hentai then
