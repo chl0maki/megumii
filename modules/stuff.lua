@@ -26,6 +26,15 @@ local get, body = http.request("GET", "https://aws.random.cat/meow")
     }
 end
 
+cmds["hug"] = function(arg, message)
+    message.channel:send {
+        embed = {
+        description = string.format("You hugged %s!", message.mentionedUsers.first.mentionString),
+        image = { url = "https://media.tenor.com/images/1f667730f4380bfe2093b4e9d69883ed/tenor.png" }
+        }
+    }
+end
+
 cmds["hentai"] = function(arg, message)
     if message.channel.nsfw or message.channel.nsfw-chat or message.channel.hentai then
         local get, body = http.request("GET", "https://nekos.life/api/v2/img/lewd")
@@ -44,7 +53,7 @@ cmds["coinflip"] = function(arg, message)
 end
 
 cmds["cmds"] = function(arg, message)
-	message.channel:send("current commands are: =sonic, =cat, =dog, =hentai (nsfw channel), =coinflip and =cmds. (note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw, nsfw-chat, or hentai.")
+	message.channel:send("current commands are: =sonic, =cat, =dog, =hentai (nsfw channel), =coinflip, =hug and =cmds. (note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw, nsfw-chat, or hentai.")
 end
 
 cmds["sonic"] = function(arg, message)
