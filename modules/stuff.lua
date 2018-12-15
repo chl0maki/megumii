@@ -74,7 +74,7 @@ cmds["cmds"] = function(arg, message)
     end
     
     local commandslist = table.concat(keyset, ', ' .. prefix)
-	message.channel:send("current commands are: =" .. commandslist .. ". \n(note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw, nsfw-chat, or hentai.")
+	message.channel:send("current commands are: =" .. commandslist .. ". \n(note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw")
 end
 
 return cmds
