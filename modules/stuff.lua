@@ -40,7 +40,7 @@ cmds["hentai"] = function(arg, message)
         local get, body = http.request("GET", "https://nekos.life/api/v2/img/lewd")
         message.channel:send {
             embed = {
-                title = "hentai",
+                title = json.decode(body)["url"],
                 image = { url = json.decode(body)["url"] }
             }
         }
