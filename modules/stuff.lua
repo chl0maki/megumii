@@ -53,7 +53,7 @@ cmds["coinflip"] = function(arg, message)
 end
 
 cmds["cmds"] = function(arg, message)
-	message.channel:send("current commands are: =sonic, =cat, =dog, =hentai (nsfw channel), =coinflip, =hug and =cmds. (note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw, nsfw-chat, or hentai.")
+	message.channel:send("current commands are: =sonic, =cat, =dog, =hentai (nsfw channel), =coinflip, =hug and =cmds. (note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel.")
 end
 
 cmds["sonic"] = function(arg, message)
