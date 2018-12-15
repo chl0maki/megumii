@@ -36,7 +36,7 @@ cmds["hug"] = function(arg, message)
 end
 
 cmds["hentai"] = function(arg, message)
-    if message.channel.nsfw or message.channel.nsfw-chat or message.channel.hentai then
+    if message.channel.nsfw then
         local get, body = http.request("GET", "https://nekos.life/api/v2/img/lewd")
         message.channel:send {
             embed = {
