@@ -36,7 +36,7 @@ end
 cmds["hug"] = function(arg, message)
     message.channel:send {
         embed = {
-        description = "You hugged " .. message.mentionedUsers.first.mentionString .. "!"
+        description = string.format("You hugged %s!", message.mentionedUsers.first.mentionString),
         image = { url = "https://media.tenor.com/images/1f667730f4380bfe2093b4e9d69883ed/tenor.png" }
         }
     }
