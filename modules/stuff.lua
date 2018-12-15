@@ -4,6 +4,13 @@ local json = require("../json")
 
 local random = math.random
 
+local file = io.open("./config.json", r)
+local content = file:read("*all")
+local config = json.decode(content)
+file:close()
+
+local prefix = config["prefix"]
+
 local cmds = {}
 
 cmds["dog"] = function(arg, message)
@@ -52,12 +59,22 @@ cmds["coinflip"] = function(arg, message)
 	message.channel:send(a)
 end
 
-cmds["cmds"] = function(arg, message)
-	message.channel:send("current commands are: =sonic, =cat, =dog, =hentai (nsfw channel), =coinflip, =hug and =cmds. (note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw, nsfw-chat, or hentai.")
-end
-
 cmds["sonic"] = function(arg, message)
 	message.channel:send("<:sonic:412304114270208011>")
+end
+
+
+cmds["cmds"] = function(arg, message)
+    local keyset={}
+    local n=0
+
+    for k,v in pairs(cmds) do
+        n=n+1
+        keyset[n]=k
+    end
+    
+    local commandslist = concat(keyset, ', ' .. prefix)
+	message.channel:send("current commands are: =" .. commandslist .. ". (note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw, nsfw-chat, or hentai.")
 end
 
 return cmds
