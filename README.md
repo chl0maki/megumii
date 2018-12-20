@@ -12,4 +12,4 @@ special thanks to TheFox#4695 // https://github.com/thefoxbot for making the cod
 invite: https://discordapp.com/api/oauth2/authorize?client_id=412302228217397249&permissions=8&scope=bot
 keep in mind it has admin perms, if you don't like that, that's fine
 
-it's also barely online so i don't know why you'd invite it
+update: now hosted on a vps (until 31th of january 2019)
