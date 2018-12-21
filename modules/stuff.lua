@@ -1,6 +1,7 @@
 local discordia = require("discordia")
 local http = require("../coro-http")
 local json = require("../json")
+local logger = discordia.Logger(3, "%F %T")
 
 local random = math.random
 
@@ -10,8 +11,20 @@ local config = json.decode(content)
 file:close()
 
 local prefix = config["prefix"]
+local owners = config["owners"]
 
 local cmds = {}
+
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 
 cmds["dog"] = function(arg, message)
 local get, body = http.request("GET", "https://random.dog/woof.json")
@@ -63,6 +76,15 @@ cmds["sonic"] = function(arg, message)
 	message.channel:send("<:sonic:412304114270208011>")
 end
 
+cmds["update"] = function(arg, message)
+    if has_value(owners, message.author.id) then
+        message.channel:send("updating...")
+        logger:log(3, "updating bot...")
+        print(os.execute("git pull"))
+    else
+        message.channel:send("only the owner can use this")
+    end
+end
 
 cmds["cmds"] = function(arg, message)
     local keyset={}
