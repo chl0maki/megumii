@@ -79,9 +79,12 @@ end
 
 cmds["update"] = function(arg, message)
     if has_value(owners, message.author.id) then
-        message.channel:send("updating...")
+        local updatemsg = message.channel:send("updating...")
         logger:log(3, "updating bot...")
         print(os.execute("git pull"))
+        logger:log(3, "done")
+        updatemsg:setContent("done! restart time")
+        client:stop() --this should only be included if you run the bot via "yes | luvit megumin.lua", otherwise feel free to remove it
     else
         return "only the owner can use this"
     end
