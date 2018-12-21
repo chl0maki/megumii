@@ -83,7 +83,7 @@ cmds["update"] = function(arg, message)
         logger:log(3, "updating bot...")
         print(os.execute("git pull"))
         logger:log(3, "done")
-        updatemsg:setContent("done! restart time")
+        updatemsg:setContent(updatemsg.content .. "\ndone! restart time")
         client:stop() --this should only be included if you run the bot via "yes | luvit megumin.lua", otherwise feel free to remove it
     else
         return "only the owner can use this"
