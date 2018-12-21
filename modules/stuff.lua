@@ -5,6 +5,8 @@ local logger = discordia.Logger(3, "%F %T")
 
 local random = math.random
 
+local f = string.format
+
 local file = io.open("./config.json", r)
 local content = file:read("*all")
 local config = json.decode(content)
@@ -68,12 +70,11 @@ cmds["hentai"] = function(arg, message)
 end
 
 cmds["coinflip"] = function(arg, message)
-	local a = string.format("You flip a coin. It lands on %s.", random(2) == 1 and "heads" or "tails")
-	message.channel:send(a)
+    return f("You flip a coin. It lands on %s.", random(2) == 1 and "heads" or "tails")
 end
 
 cmds["sonic"] = function(arg, message)
-	message.channel:send("<:sonic:412304114270208011>")
+	return "<:sonic:412304114270208011>"
 end
 
 cmds["update"] = function(arg, message)
@@ -82,7 +83,7 @@ cmds["update"] = function(arg, message)
         logger:log(3, "updating bot...")
         print(os.execute("git pull"))
     else
-        message.channel:send("only the owner can use this")
+        return "only the owner can use this"
     end
 end
 
@@ -96,7 +97,7 @@ cmds["cmds"] = function(arg, message)
     end
     
     local commandslist = table.concat(keyset, ', ' .. prefix)
-	message.channel:send("current commands are: =" .. commandslist .. ". \n(note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw")
+	return "current commands are: =" .. commandslist .. ". \n(note: check https://aws.random.cat/meow if =cat doesnt work.) if =hentai doesn't work, name your nsfw channel to nsfw"
 end
 
 return cmds

@@ -51,7 +51,10 @@ client:on(
 		cmds = cmds or content
 
 		if stuff[cmds] then
-			stuff[cmds](arg, message)
+			local commandoutput = stuff[cmds](arg, message)
+			if commandoutput ~= nil then
+				message.channel:send(commandoutput)
+			end
 		end
 	end
 )
