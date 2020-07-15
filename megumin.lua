@@ -2,7 +2,7 @@
 	kms
 	also, if you came here for a token, move away because there aint any tokens.
 
-	special thanks to geni#0020 or https://github.com/geniiii
+	special thanks to Ted Kaczynski#2736 or https://github.com/geniiii
 ]]
 
 
