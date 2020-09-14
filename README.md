@@ -7,4 +7,4 @@ special thanks to Charles Manson#2736 // https://github.com/geniiii for writing 
 
 special thanks to Mat#7533 // https://github.com/matcool/ for giving in and telling me how to do the =hug command
 
-special thanks to oatmealine#4695 // https://github.com/oatmealine for making the code "unmessy"
+special thanks to oatmealine#3101 // https://github.com/oatmealine for making the code "unmessy"
